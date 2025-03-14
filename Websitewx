@@ -1,0 +1,219 @@
+import streamlit as st
+import subprocess
+from PIL import Image as IMG
+from streamlit_image_coordinates import streamlit_image_coordinates
+from PIL import ImageOps
+import pyglet
+st.header("Optical Telescope site testing in Kenya",divider='blue')
+
+
+campussky=IMG.open("skycampus.jpg")
+st.image(campussky)
+st.caption("Classroom against outer milky way at Turkana Basin Institute, Ileret campus, Turkana, Northern Kenya. Photo by Dr. Kenneth Duncan")
+st.markdown("Kenya’s access to the equatorial sky is a great asset for astronomy in the country. The atmospheric conditions of the north are indicative of a globally-competitive site for the placement of a research-grade optical telescope. The pursuit of establishing this site is a collaboration between institutions from the UK and Kenya, working to collect weather data from 3 test locations: Mt. Nyiro, Mt. Mara, and Mt. Kenya.")
+
+logos1=IMG.open("logoswide3.png")
+st.image(logos1)
+logos2=IMG.open("logoswide4.png")
+st.image(logos2)
+
+tab1,tab2,tab3,tab4 = st.tabs(["Weather stations", "Expeditions" , "Data","EPCC model"])
+
+with tab1:     
+    campbell=IMG.open("campbell.png")
+    col1, col2 = st.columns(2)
+
+    with col1:
+        st.image(campbell)
+        st.caption('Weather station at Mt. Kenya with surrounding electric fence')
+
+    with col2:
+        st.write("We use Campbell Scientific Weather stations to collect atmospheric data for the 3 sites. The systems are equipped with ***sensor info*** and CR350 data loggers which store and transmit the data. The data loggers are configured to transmit to the public server hosted at Turkana Basin Institute using the safaricom network. Stations are collecting data every 10 minutes and up to 3 months of data can be stored on the internal hard disk. The size of data collected is small. Each station has been secured based on the needs of its locality - i.e. what the highest risk of interference in the region is.~ **data size** ")
+
+with tab2:
+    st.write("The systems were installed in 3 separate expeditions by teams including researchers, students, technical staff, and community liaisons.") 
+
+    tab11,tab22,tab33=st.tabs(["Mt. Nyiro","Mt.Kenya","Mt.Mara"])
+    with tab11:
+        st.subheader("Mt.Nyiro")
+        nyiromap=IMG.open("nyiromap.png")
+        st.image(nyiromap)
+        st.write("Mt. Nyiro (Ol dono Ng'iro) lies towards the south-east of Lake Turkana in northern Kenya. It is located in Samburu county and is in the territory of the samburu community. The samburu are traditionally pastorolists and this continues to be the major economic activity in the mountain and surrounding regions. Camels, goats and cows graze up to the very top of the mountain. Water scarcity is a big problem facing the community, with only a small stream originating in the mountain top. The area is semi-arid, though the mountain hosts diverse vegetation and is up to **10** degrees cooler at the top. Mt Nyiro is *** above sea level." )
+        st.subheader("Community engagement")
+        st.write("A major part of the expedition was engagement with the community. Our expedition set off from the eastern side of the mountain where the ***longeraiye** village is. Jacob Lekupe, a native of the village, was brought on as the community liasion for the project. He advised on the protocols for engaging the elders of the community, the resources needed to climb the mountain, arranged porters for carrying equipment up the mountain, and accompanied the team during the expedition")
+        # tab21,tab22,tab23,tab24,tab25,tab26,tab27,tab28,tab29,tab210,tab211,tab212,tab213,tab214,tab215,tab216,tab217,tab218,tab219,tab220,tab221,tab222,tab223,tab224,tab225,tab226,tab227= st.tabs(["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27"])
+        tab21,tab22,tab23= st.tabs(["1","2","3"])
+
+        with tab21:
+            nyiro1=IMG.open("nyiro1.jpg")
+            st.image(nyiro1)
+            st.caption("From the summit of Mt. Nyiro")
+        with tab22:
+            nyiro1=IMG.open("nyiro2.jpg")
+            st.image(nyiro1)    
+            st.caption("Loongerin village")
+        with tab23:
+            nyiro1=IMG.open("nyiro3.jpg")
+            st.image(nyiro1)
+            st.caption("AirTurkana flight arriving with the team at Sedar airstrip,Samburu.")
+    #     with tab24:
+    #         nyiro1=IMG.open("nyiro4.jpeg")
+    #         st.image(nyiro1)  
+    #         st.caption("Robert Ngechu (TBI) and Assistant Chief Moses sharing goals of the expedition at meeting with community elders ")
+    #     with tab25:
+    #         nyiro1=IMG.open("nyiro5.jpeg")
+    #         st.image(nyiro1)
+    #         st.caption("Eddie Graham (University of highlands and Islands, KOTI) sharing gift to elders on behald of the team")
+    #     with tab26:
+    #         nyiro1=IMG.open("nyiro6.jpg")
+    #         nyiro1 = ImageOps.exif_transpose(nyiro1)
+    #         st.image(nyiro1)    
+    #         st.caption("Shirley Aoko (Technical Univ. Kenya) on hike up")
+    #     with tab27:
+    #         nyiro1=IMG.open("nyiro7.jpg")
+    #         nyiro1 = ImageOps.exif_transpose(nyiro1)
+    #         st.image(nyiro1)
+    #         st.caption("Team on the hike up - Jamie Robinson (Univ. of Edinburgh with jerrycans for water")
+    #     with tab28:
+    #         nyiro1=IMG.open("nyiro8.jpg")
+    #         nyiro1 = ImageOps.exif_transpose(nyiro1)
+    #         st.image(nyiro1)      
+    #         st.caption("Isaac Angina (Univ.of Nairobi) and Joash Kipkemei (Kenya Met) on the hike up")
+    #     with tab29:
+    #         nyiro1=IMG.open("nyiro9.jpg")
+    #         st.image(nyiro1)
+    #         st.caption("Team on a rest-stop")
+    #     with tab210:
+    #         nyiro1=IMG.open("nyiro10.jpg")
+    #         st.image(nyiro1)    
+    #         st.caption("Cattle grazing at the top of Mt. Nyiro")
+    #     with tab211:
+    #         nyiro1=IMG.open("nyiro11.jpg")
+    #         st.image(nyiro1)
+    #         st.caption("Isaac Angina at rest stop")
+    #     with tab212:
+    #         nyiro1=IMG.open("nyiro12.jpg")
+    #         st.image(nyiro1)   
+    #         st.caption("Dorcus Nthoki (Technical Univ. Kenya), Jamie Robinson and Jacob Lekupe with porters at summit camp")            
+    #     with tab213:
+    #         nyiro1=IMG.open("nyiro13.jpeg")
+    #         st.image(nyiro1)
+    #         st.caption("Campfire at summit")      
+    #     with tab214:
+    #         nyiro1=IMG.open("nyiro14.jpeg")
+    #         st.image(nyiro1)    
+    #         st.caption("Team prepping for installation at summit")
+    #     with tab215:
+    #         nyiro1=IMG.open("nyiro15.jpg")
+    #         st.image(nyiro1)
+    #         st.caption("Jacob Lekupe and Woto Huka (TBI) prepping porters for the day's activities at summit")
+
+    #     with tab216:
+    #         nyiro1=IMG.open("nyiro16.jpg")
+    #         st.image(nyiro1)
+    #         st.caption("Team during installation")
+  
+    #     with tab217:
+    #         nyiro1=IMG.open("nyiro17.jpg")
+    #         st.image(nyiro1)
+    #         st.caption("Camp sat summit")
+
+    #     with tab218:
+    #         nyiro1=IMG.open("nyiro18.jpeg")
+    #         st.image(nyiro1)
+    #         st.caption("Dorcus,Joash, Harold Safary(Kenya Space Agency) and Joash at during installation at summit")
+    
+    #     with tab219:
+    #         nyiro1=IMG.open("nyiro19.jpeg")
+    #         st.image(nyiro1)
+    #         st.caption ("Shirley, Harold, Dorcus, and Isaac setting up software for data logger")
+
+    #     with tab220:
+    #         nyiro1=IMG.open("nyiro20.jpeg")
+    #         st.image(nyiro1)  
+    #         st.caption("Robert, Joash, and Isaac fitting solar panels onto the mast")
+    # # with tab221:
+    # #     nyiro1=IMG.open("nyiro21.jpeg")
+    # #     st.image(nyiro1)
+    #     with tab221:
+    #         nyiro1=IMG.open("nyiro22.jpeg")
+    #         st.image(nyiro1)
+    #         st.caption("Josh and Jamie securing mast")
+    # # with tab223:
+    # #     nyiro1=IMG.open("nyiro23.jpeg")
+    # #     st.image(nyiro1)
+    #     with tab222:
+    #         nyiro1=IMG.open("nyiro24.jpeg")
+    #         st.image(nyiro1)               
+    #         st.caption("Team at installation")
+    #     with tab223:
+    #         nyiro1=IMG.open("nyiro24.jpg")
+    #         st.image(nyiro1)      
+    #         st.caption("Eddie with *** , a young pastoralist whom he met in 2015 during his first visit to the site")
+    #     with tab224:
+    #         nyiro1=IMG.open("nyiro25.jpg")
+    #         st.image(nyiro1)
+    #         st.caption("Wild honey collected by from ***")
+    #     with tab225:
+    #         nyiro1=IMG.open("nyiro26.jpeg")
+    #         st.image(nyiro1)    
+    #         st.caption("Harold dancing to keep warm")
+    #     with tab226:
+    #         nyiro1=IMG.open("nyiro27.JPG")
+    #         st.image(nyiro1)
+    #         st.caption("Road from KOROS camp with Mt.Nyiro in the background")
+    #     with tab227:
+    #         nyiro1=IMG.open("nyiro28.jpeg")
+    #         st.image(nyiro1)                  
+    #         st.caption("Weather station team : from left : Jacob Lekupe, Eddie Graham,Shirley Aoko, Jamie Robinson, Joash Kipkemei, Robert Ngechu, Isaac Angina, Mike Agini(TBI), Lekshmi Rajagopal (TBI), Harold Safary, Dorcus Nthoki")                                                                                                                                                                                        
+with tab3:
+    st.subheader("Data")
+    st.write('The data is visualized in a chart that shows hourly averages of the chosen parameters. The parameters shown are:')
+    st.write('1. Temperature (K)')
+    st.write('2. Relative Humidity (%)')
+    st.write('3. Downward longwave radiation flux at the ground (W/m^2, downward is positive)')
+    st.write('4. Total column-integrated water vapor and cloud variables (For EPCC model only)')
+    st.write('5. Air Pressure (Pa)')
+    st.write('6. Wind Speed (Knots)')
+    st.write('7. Wind direction (shown as emerging direction)')
+    st.write('Data from previous midnight to current time are taken from the weather station and predictive data is shown using the EPCC met model forecast for an additional 24 hours ')
+    
+    st.subheader("Viewing Data")
+    st.write("Data from each station is available to view. Click on the relevant station to retrieve data (can take up to a minute to load).")
+    #button_clicked=st.button("Click here to view data for today")
+    # def start_capture():
+    #     subprocess.run(["python", "data_plus_model.py"])
+    # def run_cap():
+    #     st.button("Click here to view sky chart for today",on_click=start_capture)
+    # run_cap()
+    
+    wx3image=IMG.open("wx3.3.png")
+    # st.image(wx3image)
+    value = streamlit_image_coordinates(wx3image)
+    #st.write(value)
+
+    if 89<value["x"]<226 and 83<value["y"]<132:
+        with st.spinner("Please wait"):
+
+            st.write("This will show Mt Nyiro data")
+        
+    if 123<value["x"]<258 and 212<value["y"]<265:        
+        with st.spinner("Please wait"):
+
+            def start_capture():
+                subprocess.run(["python", "arrowsmag.py"])
+        # def run_cap():
+        #     st.button("Click here to view sky chart for today",on_click=start_capture)
+    
+            start_capture()
+                     
+    if 138<value["x"]<314 and 133<value["y"]<185:
+        with st.spinner("Please wait"):
+        
+            st.write("This will show Mt Mara data")
+      
+with tab4:
+    st.subheader("Edinburgh Parallel Computing Center Meteorological model")        
+
+    
+    
