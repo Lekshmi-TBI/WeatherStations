@@ -199,15 +199,15 @@ with tab3:
 
             st.write("This will show Mt Nyiro data")
         
-    if 123<value["x"]<258 and 212<value["y"]<265:        
-        with st.spinner("Please wait"):
+    #if 123<value["x"]<258 and 212<value["y"]<265:        
+     #   with st.spinner("Please wait"):
 
-            def start_capture():
-                subprocess.run(["python", "arrowsmag.py"])
+      #      def start_capture():
+       #         subprocess.run(["python", "arrowsmag.py"])
         # def run_cap():
         #     st.button("Click here to view sky chart for today",on_click=start_capture)
     
-            start_capture()
+        #    start_capture()
                      
     if 138<value["x"]<314 and 133<value["y"]<185:
         with st.spinner("Please wait"):
